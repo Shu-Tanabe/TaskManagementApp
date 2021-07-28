@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { Suspense } from 'react';
+import { RecoilRoot } from 'recoil';
 import styled from 'styled-components';
+import Tags from '../organisms/Tags';
 
 const AppBar = styled.section`
   top: 0%;
@@ -18,25 +20,14 @@ const SideNav = styled.section`
   height: 100vh;
   position: fixed;
 `;
-const Tags = styled.section`
-  background: #f0f4c3;
+const TagsArea = styled.section`
+  /* background: #f0f4c3; */
   margin-left: 3vw;
   margin-top: 3vw;
   /* padding-left: 0.5vw; */
-  width: 12vw;
-  height: 100vh;
+  /* width: 12vw;
+  height: 100vh; */
   position: fixed;
-`;
-const TagWrapper = styled.section`
-  overflow: auto;
-  width: 90%;
-  margin-left: 5%;
-  padding-top: 6vh;
-`;
-const Tag = styled.section`
-  background: #ce93d8;
-  width: 100%;
-  height: 5vh;
 `;
 const Search = styled.section`
   margin-top: 6vh;
@@ -47,7 +38,6 @@ const Search = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* position: fixed; */
 `;
 const SearchBox = styled.section`
   width: 60vw;
@@ -60,7 +50,6 @@ const Contents = styled.section`
   min-height: 100%;
   background: #d7ccc8;
   margin-left: 15vw;
-  /* margin-top: 6vh; */
   padding-top: 6vh;
   justify-content: center;
   position: fixed;
@@ -71,9 +60,7 @@ const ContentBoxWrapper = styled.section`
   width: 60vw;
   height: 100vh;
   position: relative;
-  /* display: flex; */
   div {
-    /* display: block; */
     color: red;
   }
 `;
@@ -87,46 +74,43 @@ const ContentBox = styled.section`
 function Menu(): JSX.Element {
   return (
     <div style={{ height: '100%' }}>
-      <AppBar>App Bar</AppBar>
-      <SideNav>Nav</SideNav>
-      <Tags>
-        <TagWrapper>
-          <Tag>Tag</Tag>
-        </TagWrapper>
-      </Tags>
-      <Search>
-        <SearchBox>search</SearchBox>
-      </Search>
-      <Contents>
-        <ContentBoxWrapper>
-          <div style={{ transform: 'translateY(0)' }}>
-            <ContentBox>contents</ContentBox>
-          </div>
-          <div style={{ transform: 'translateY(19vh)' }}>
-            <ContentBox>contents</ContentBox>
-          </div>
-          <div style={{ transform: 'translateY(38vh)' }}>
-            <ContentBox>contents</ContentBox>
-          </div>
-          <div style={{ transform: 'translateY(57vh)' }}>
-            <ContentBox>contents</ContentBox>
-          </div>
-          <div style={{ transform: 'translateY(76vh)' }}>
-            <ContentBox>contents</ContentBox>
-          </div>
-          <div style={{ transform: 'translateY(95vh)' }}>
-            <ContentBox>contents</ContentBox>
-          </div>
-        </ContentBoxWrapper>
-      </Contents>
-      {/* <Contents>
-          <div>
-            <ContentBox>contents</ContentBox>
-          </div>
-          <div>
-            <ContentBox>contents</ContentBox>
-          </div>
-        </Contents> */}
+      <RecoilRoot>
+        <AppBar>App Bar</AppBar>
+        <SideNav>Nav</SideNav>
+        <Suspense fallback={<p>ローディング</p>}>
+          <TagsArea>
+            <Tags />
+          </TagsArea>
+        </Suspense>
+        <Search>
+          <SearchBox>search</SearchBox>
+        </Search>
+        <Contents>
+          <ContentBoxWrapper>
+            <div style={{ transform: 'translateY(0)' }}>
+              <ContentBox>contents</ContentBox>
+            </div>
+            <div style={{ transform: 'translateY(19vh)' }}>
+              <ContentBox>contents</ContentBox>
+            </div>
+            <div style={{ transform: 'translateY(38vh)' }}>
+              <ContentBox>contents</ContentBox>
+            </div>
+            <div style={{ transform: 'translateY(57vh)' }}>
+              <ContentBox>contents</ContentBox>
+            </div>
+            <div style={{ transform: 'translateY(76vh)' }}>
+              <ContentBox>contents</ContentBox>
+            </div>
+            <div style={{ transform: 'translateY(95vh)' }}>
+              <ContentBox>contents</ContentBox>
+            </div>
+            <div style={{ transform: 'translateY(114vh)' }}>
+              <ContentBox>contents</ContentBox>
+            </div>
+          </ContentBoxWrapper>
+        </Contents>
+      </RecoilRoot>
     </div>
   );
 }
