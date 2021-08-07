@@ -2,8 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TagTitleSpaceStyle = styled.section`
-  height: 6vh;
-  width: 100%;
+  height: 50px;
+  width: 240px;
+  position: sticky;
+  top: 0;
+  display: block;
+  z-index: 10;
+  background: #ffffff;
   div {
     padding-left: 4px;
     display: flex;

@@ -5,13 +5,13 @@ import { selectedTagState } from '../states/rootStates/selectedTag';
 import TagIcon from '../icons/local_offer_black_24dp.svg';
 import type { TagType } from '../models/TagModel';
 
-const TagStyle = styled.section<{ isSelected: boolean }>`
-  width: 100%;
+const TagStyle = styled.div<{ isSelected: boolean }>`
+  width: auto;
   height: 5vh;
-  background: ${({ isSelected }) => (isSelected ? '#bdbdbd' : '#ffffff')};
+  background: ${({ isSelected }) => (isSelected ? '#eeeeee' : '#ffffff')};
   cursor: pointer;
   :hover {
-    background: #bdbdbd;
+    background: #eeeeee;
   }
   div {
     height: 100%;
