@@ -5,7 +5,7 @@ import type { GoalType } from '../models/GoalModel';
 
 const GoalStyle = styled.section<{ index: number }>`
   width: 60vw;
-  height: 16vh;
+  height: 140px;
   position: absolute;
   display: block;
   background: #ffffff;
@@ -38,7 +38,7 @@ const GoalStyle = styled.section<{ index: number }>`
     height: 6.5vh;
   }
   .goal-status-wrapper {
-    width: 4vw;
+    width: 50px;
     height: 2.4vh;
     padding-right: 20px;
     margin: 0 0 0 auto;

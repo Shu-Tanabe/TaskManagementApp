@@ -19,6 +19,7 @@
     "prettier"
   ],
   "rules": {
+    "no-control-regex": 0,
     "import/extensions": [
       "error",
       "always",

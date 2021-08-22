@@ -2,8 +2,8 @@
 import React, { Suspense } from 'react';
 import { RecoilRoot } from 'recoil';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Tags from '../organisms/Tags';
-import GoalsSection from '../organisms/GoalsSection';
 import Goals from '../organisms/Goals';
 import TagTitleSpace from '../molecules/TagTitleSpace';
 
@@ -15,16 +15,6 @@ const MenuStyle = styled.section`
   z-index: 1;
 `;
 
-const AppBar = styled.div`
-  color: red;
-  width: 100vw;
-  max-width: 100vw;
-  height: 6vh;
-  background: #ffccbc;
-  padding-left: 1vw;
-  position: relative;
-  z-index: 100;
-`;
 const SideNavWrapper = styled.div`
   top: 0;
   left: 0;
@@ -76,7 +66,6 @@ const GoalsWrapper = styled.div`
   width: 100%;
   height: 150vh;
   margin-bottom: 0;
-  /* position: relative; */
   align-items: center;
   justify-content: center;
   overflow: scroll;
@@ -86,11 +75,18 @@ const GoalsWrapper = styled.div`
 const RightArea = styled.div`
   width: 100%;
   height: 100vh;
-  /* max-height: 100%; */
   position: relative;
   display: flex;
   flex-direction: column;
 `;
+
+function SideNav() {
+  return (
+    <SideNavStyle>
+      <Link to="/sign-up">up</Link>
+    </SideNavStyle>
+  );
+}
 
 function Menu(): JSX.Element {
   return (
@@ -103,10 +99,9 @@ function Menu(): JSX.Element {
       }}
     >
       <RecoilRoot>
-        {/* <AppBar>App Bar</AppBar> */}
         <MenuStyle>
           <SideNavWrapper>
-            <SideNavStyle>Nav</SideNavStyle>
+            <SideNav />
           </SideNavWrapper>
           <Suspense fallback={<p>ローディング</p>}>
             <TagsArea className="tags-area">
