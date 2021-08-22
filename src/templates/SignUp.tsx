@@ -135,7 +135,7 @@ function SignUp(): JSX.Element {
   );
   const isDisabled = useRecoilValue(passwordValidation);
 
-  const checkValidattion = (event: ChangeEvent<HTMLInputElement>) => {
+  const checkValidattion = (event: ChangeEvent<HTMLInputElement>): void => {
     const { target } = event;
     const password = target.value;
     const capitalRegex = /[A-Z]/g;
